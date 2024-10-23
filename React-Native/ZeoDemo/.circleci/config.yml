@@ -1,0 +1,152 @@
+version: 2.1
+jobs:
+  node-pre-build:
+    working_directory: ~/project
+    docker:
+      - image: cimg/node:14.15.5
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
+      
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: npm install
+      - run: yarn install
+
+      - save_cache:
+          key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - node_modules
+            
+  android-build-and-deploy:
+    working_directory: ~/project/android
+    docker:
+      - image: circleci/android:api-30-node
+    steps:
+      - checkout:
+          path: ~/project
+
+      - attach_workspace:
+          at: ~/project
+      - store_artifacts:
+          path: /tmp
+      - run:
+          name: Build for QA of android sdk
+          command: |
+            mkdir /tmp/qa-output
+            rm -rf ~/project/android/app/libs/zeotap-collect-android-v*
+            curl -o /tmp/qa-output/android-collect-sdk-qa.zip "https://content.zeotap.com/android-sdk/qa/android-collect-sdk-qa.zip"
+            unzip /tmp/qa-output/android-collect-sdk-qa.zip -d /tmp/qa-output
+            cp -r /tmp/qa-output/android-collect-sdk-qa/zeotap-collect-android-v* ~/project/android/app/libs
+            npm run build-android
+            cd ~/project/android
+            ./gradlew assembleDebug
+      - run:
+          name: Uploading QA artifact to artifactory
+          command: |
+            COMMIT_ID=`git log --format="%h" -n 1`
+            cp -r ~/project/android/app/build/outputs/apk/debug/app-debug.apk Zeotap_Test_APP.apk
+            curl -u ${GENERIC_USER}:${GENERIC_PASSWORD} -T Zeotap_Test_APP.apk "https://zeotap.jfrog.io/zeotap/generic-local/rn-app/rn-qa-app-$COMMIT_ID/Zeotap_Test_APP.apk"
+
+
+      - run:
+          name: Build for Staging of android sdk
+          command: |
+            mkdir /tmp/staging-output
+            rm -rf ~/project/android/app/libs/zeotap-collect-android-v*
+            curl -o /tmp/staging-output/android-collect-sdk-staging.zip "https://content.zeotap.com/android-sdk/staging/android-collect-sdk-staging.zip"
+            unzip /tmp/staging-output/android-collect-sdk-staging.zip -d /tmp/staging-output
+            cp -r /tmp/staging-output/android-collect-sdk-staging/zeotap-collect-android-v* ~/project/android/app/libs
+            npm run build-android
+            cd ~/project/android
+            ./gradlew assembleDebug
+      - run:
+          name: Uploading Staging artifact to artifactory
+          command: |
+            COMMIT_ID=`git log --format="%h" -n 1`
+            cp -r ~/project/android/app/build/outputs/apk/debug/app-debug.apk Zeotap_Test_APP.apk
+            curl -u ${GENERIC_USER}:${GENERIC_PASSWORD} -T Zeotap_Test_APP.apk "https://zeotap.jfrog.io/zeotap/generic-local/rn-app/rn-staging-app-$COMMIT_ID/Zeotap_Test_APP.apk"
+
+
+      - run:
+          name: Build for Prod of android sdk
+          command: |
+            mkdir /tmp/prod-output
+            rm -rf ~/project/android/app/libs/zeotap-collect-android-v*
+            curl -o /tmp/prod-output/android-collect-sdk.zip "https://content.zeotap.com/android-sdk/android-collect-sdk.zip"
+            unzip /tmp/prod-output/android-collect-sdk.zip -d /tmp/prod-output
+            cp -r /tmp/prod-output/android-collect-sdk/zeotap-collect-android-v* ~/project/android/app/libs
+            npm run build-android
+            cd ~/project/android
+            ./gradlew assembleDebug
+      - run:
+          name: Uploading Prod artifact to artifactory
+          command: |
+            COMMIT_ID=`git log --format="%h" -n 1`
+            cp -r ~/project/android/app/build/outputs/apk/debug/app-debug.apk Zeotap_Test_APP.apk
+            curl -u ${GENERIC_USER}:${GENERIC_PASSWORD} -T Zeotap_Test_APP.apk "https://zeotap.jfrog.io/zeotap/generic-local/rn-app/rn-app-$COMMIT_ID/Zeotap_Test_APP.apk"
+
+  ios-build-and-deploy:
+    working_directory: ~/project/ios
+    docker:
+      - image: circleci/android:api-30-node
+    steps:
+      - checkout:
+          path: ~/project
+
+      - attach_workspace:
+          at: ~/project
+      - store_artifacts:
+          path: /tmp
+      - run:
+          name: Build for QA of android sdk
+          command: |
+            mkdir /tmp/qa-output
+            rm -rf ~/project/android/app/libs/zeotap-collect-android-v*
+            curl -o /tmp/qa-output/android-collect-sdk-qa.zip "https://content.zeotap.com/android-sdk/qa/android-collect-sdk-qa.zip"
+            unzip /tmp/qa-output/android-collect-sdk-qa.zip -d /tmp/qa-output
+            cp -r /tmp/qa-output/android-collect-sdk-qa/zeotap-collect-android-v* ~/project/android/app/libs
+            npm run build-android
+            cd ~/project/android
+            ./gradlew assembleDebug
+      - run:
+          name: Uploading QA artifact to artifactory
+          command: |
+            COMMIT_ID=`git log --format="%h" -n 1`
+            cp -r ~/project/android/app/build/outputs/apk/debug/app-debug.apk Zeotap_Test_APP.apk
+            curl -u ${GENERIC_USER}:${GENERIC_PASSWORD} -T Zeotap_Test_APP.apk "https://zeotap.jfrog.io/zeotap/generic-local/rn-app/rn-qa-app-$COMMIT_ID/Zeotap_Test_APP.apk"
+
+
+workflows:
+  react-native-build:
+    jobs:
+      - node-pre-build
+      - android-build-and-deploy:
+          requires:
+            - node-pre-build
+          context: Q3-2020
+          filters:
+            branches:
+              only: /^master|ZI-8780/feature/update-circleci|ZP-3937/sdk-version-update/2.0.0-fix$/

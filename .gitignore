@@ -1,0 +1,75 @@
+# OSX
+#
+.DS_Store
+React-Native/ZeoDemo/.DS_Store
+
+# Xcode
+#
+React-Native/ZeoDemo/build/
+*.pbxuser
+!React-Native/ZeoDemo/default.pbxuser
+*.mode1v3
+!React-Native/ZeoDemo/default.mode1v3
+*.mode2v3
+!React-Native/ZeoDemo/default.mode2v3
+*.perspectivev3
+!React-Native/ZeoDemo/default.perspectivev3
+React-Native/ZeoDemo/xcuserdata
+*.xccheckout
+*.moved-aside
+React-Native/ZeoDemo/DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+React-Native/ZeoDemo/ios/Podfile.lock
+*.xcodeproj/project.pbxproj
+*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+*.xcworkspace/xcuserdata/
+
+
+# Android/IntelliJ
+#
+React-Native/ZeoDemo/android/app/build
+React-Native/ZeoDemo/android/app/build/
+React-Native/ZeoDemo/android/.idea
+React-Native/ZeoDemo/android/.gradle
+React-Native/ZeoDemo/local.properties
+*.iml
+
+# node.js
+#
+React-Native/ZeoDemo/node_modules/
+React-Native/ZeoDemo/npm-debug.log
+React-Native/ZeoDemo/yarn-error.log
+
+# BUCK
+React-Native/ZeoDemo/buck-out/
+React-Native/ZeoDemo/.buckd/
+*.keystore
+!React-Native/ZeoDemo/debug.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
+
+# CocoaPods
+React-Native/ZeoDemo/ios/Pods
+React-Native/ZeoDemo/ios/Pods/
+React-Native/ZeoDemo/ios/Pods/*
+
+React-Native/ZeoDemo/android/app/src/main/res/drawable-*
+React-Native/ZeoDemo/android/app/src/main/res/raw/
+
+React-Native/ZeoDemo/node_modules
+React-Native/ZeoDemo/node_modules/*
+React-Native/ZeoDemo/vendor/*
