@@ -17,7 +17,7 @@ function index({cartItems, removeAllFromCart$, navigation}) {
   const onCheckOut = () => {
     removeAllFromCart$({});
   };
-
+  const priceAmount = cartItems.reduce((acc, item) => acc + +item.price, 0);
   return (
     <KeyboardAvoidingView style={{flex:1}}>
       <Container
@@ -37,7 +37,7 @@ function index({cartItems, removeAllFromCart$, navigation}) {
                 noBg
                 name={item.name}
                 image={item.image}
-                price={"$"+item.price}
+                price={item.price}
               />
             )}
           />
@@ -68,7 +68,7 @@ function index({cartItems, removeAllFromCart$, navigation}) {
                 width: '60%',
               }}
             />
-            <Label text="$4500" style={{fontWeight: '800'}} />
+            <Label text={"$"+priceAmount} style={{fontWeight: '800'}} />
           </View>
 
           <View

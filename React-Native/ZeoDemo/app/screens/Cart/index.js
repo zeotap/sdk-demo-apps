@@ -16,6 +16,8 @@ function index({cartItems ,navigation}) {
     setPageProperties({page: "Cart"});
   });
 
+  const priceAmount = cartItems.reduce((acc, item) => acc + +item.price, 0);
+
   const ItemCard = ({item}) => {
     const {name, description, price, image} = item;
     return ( <CheckOutItem name={name} image={image} price={price} /> );
@@ -79,7 +81,7 @@ function index({cartItems ,navigation}) {
           setEventNameProperties("Checkout Clicked")
           navigation.navigate("Checkout") 
         }
-        } buttonLabel={'CHECKOUT'} price={'$4500'} />
+        } buttonLabel={'CHECKOUT'} price={"$"+priceAmount} />
       </View>
     </>
   );
