@@ -36,7 +36,8 @@ const App: () => React$Node = () => {
           "android_write_key":"<ANDROID_KEY>",  // 1b19b1c2-dcfc-497e-8d86-8d38cd183c5b
           "ios_write_key":"<IOS_WRITE_KEY>", // 1b19b1c2-dcfc-497e-8d86-8d38cd183c5b
           "batch_size": 15, 
-          "opt_out":false, 
+          "use_consent": true,
+          "check_for_cmp": true, // purposes_for_tracking: [1, 5, 3] can be added to validate different purpose consent
           "service_interval": 500, 
           "user_country": "ind"
         });
