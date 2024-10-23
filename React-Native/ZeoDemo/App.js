@@ -32,7 +32,14 @@ const App: () => React$Node = () => {
   // console.disableYellowBox = true
       useEffect(() => {
         LogBox.ignoreAllLogs();
-        initialiseZeoCollect({"android_write_key":"1b19b1c2-dcfc-497e-8d86-8d38cd183c5b", "ios_write_key":"1b19b1c2-dcfc-497e-8d86-8d38cd183c5b", "batch_size": 15, "opt_out":false, "service_interval": 500, "user_country": "ind"})
+        initialiseZeoCollect({
+          "android_write_key":"<ANDROID_KEY>",  // 1b19b1c2-dcfc-497e-8d86-8d38cd183c5b
+          "ios_write_key":"<IOS_WRITE_KEY>", // 1b19b1c2-dcfc-497e-8d86-8d38cd183c5b
+          "batch_size": 15, 
+          "opt_out":false, 
+          "service_interval": 500, 
+          "user_country": "ind"
+        });
         console.log('initialiseZeoCollect called');
       }, []);
   return (
