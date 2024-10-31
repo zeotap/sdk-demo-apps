@@ -9,7 +9,13 @@ export default function ProductCard({navigation, item}) {
   const {name, description, price, image, isNew} = item;
   return (
     <Pressable onPress={() => {
-      setEventProperties("View Product", {name: name, description: description, price: price});
+      setEventProperties(
+        "View Product", 
+        {name: name, description: description, price: price},
+        (data) => {
+          console.log("Event status update", data);
+        }
+      );
       navigation.navigate('ProductDetails',{item})
     }
       } style={{}}>

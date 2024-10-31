@@ -13,7 +13,9 @@ import { appColors } from '../../utils/appColors';
 
 function index({cartItems ,navigation}) {
   useFocusEffect(() => {
-    setPageProperties({page: "Cart"});
+    setPageProperties({page: "Cart"}, (data) => {
+      console.log("Page properties updated", data);
+    });
   });
 
   const priceAmount = cartItems.reduce((acc, item) => acc + +item.price, 0);

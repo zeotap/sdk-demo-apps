@@ -106,7 +106,7 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
-    implementation "com.zeotap:zeo-collect:2.2.4"
+    implementation "com.zeotap:zeo-collect:2.2.5"
     implementation "com.google.code.gson:gson:2.10.1"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")

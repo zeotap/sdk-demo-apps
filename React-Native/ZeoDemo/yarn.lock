@@ -7482,7 +7482,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zeo-collect@1.1.6:
-  version "1.1.6"
-  resolved "https://registry.npmjs.org/zeo-collect/-/zeo-collect-1.1.6.tgz"
-  integrity sha512-8BPdL9XJZV4UnJ4WqpHMSDYJ4hLoYcIuhNdrrSnKi43tr3DG9rpyFMtRJF+KtqmicXKsNdJFTfty1nE+G4ulzw==
+zeo-collect@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/zeo-collect/-/zeo-collect-1.2.0.tgz"
+  integrity sha512-DvgosNsYWMKj0qe/4+UmyPcjwWrs+OGRU2Zt4xiy5XZulohRHRL7ZclfpNvxiehI0kBERAc9FkWbAYI4mjNfwA==

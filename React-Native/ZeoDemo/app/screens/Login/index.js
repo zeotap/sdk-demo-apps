@@ -38,7 +38,9 @@ export default function index({navigation}) {
           userProp = {...userProp, [customIdentifierInput[i+'_1']] : customIdentifierInput[i+'_2'] }
         }
       }
-        setUserIdentities(userProp);
+      setUserIdentities(userProp, (data) => {
+        console.log("User Identities updated", data);
+      });
       AlertHelper.show("success","Welcome to Zeotap")
       setPageProperties({screen: "home"});
       navigation.navigate("Home")
