@@ -9,6 +9,9 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.soloader.SoLoader;
+import com.inmobi.cmp.ChoiceCmp;
+import com.inmobi.cmp.data.model.ChoiceStyle;
+
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -64,5 +67,13 @@ public class MainApplication extends Application implements ReactApplication {
 //      DefaultNewArchitectureEntryPoint.load();
 //    }
     ReactNativeFlipper.initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+
+      ChoiceCmp.startChoice(
+              this,
+              "com.ZeoDemo",
+              "p-mc0g3-k1GYpmj",
+              new ConsentCallbackImp(),
+              new ChoiceStyle()
+      );
   }
 }

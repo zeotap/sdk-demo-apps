@@ -75,7 +75,7 @@ android {
 
     namespace "com.zeodemo"
     defaultConfig {
-        applicationId "com.zeodemo"
+        applicationId "com.ZeoDemo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -107,7 +107,19 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     implementation "com.zeotap:zeo-collect:2.2.4"
-    implementation "com.google.code.gson:gson:2.10.1"
+
+    implementation files('libs/inmobicmp-2.1.0.aar')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+    implementation "androidx.appcompat:appcompat:1.4.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.3"
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation "com.iabgpp:iabgpp-encoder:3.1.1"
+
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {

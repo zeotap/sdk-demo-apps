@@ -6,7 +6,7 @@
 
 
 import Foundation
-//import InMobiCMP
+import InMobiCMP
 
 
 @objc(RelaunchModule)
@@ -20,9 +20,8 @@ class RelaunchModule: NSObject {
 
   }
 
-
   @objc func displayGDPRConsentScreen() {
-//    ChoiceCmp.shared.forceDisplayUI()
+    ChoiceCmp.shared.forceDisplayUI()
   }
 }
 
