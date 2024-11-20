@@ -40,6 +40,19 @@ const App: () => React$Node = () => {
           "service_interval": 500, 
           "user_country": "ind"
         });
+
+        // initialisation with callback
+        // initialiseZeoCollect({
+        //   "android_write_key":"<ANDROID_KEY>",  // 1b19b1c2-dcfc-497e-8d86-8d38cd183c5b
+        //   "ios_write_key":"<IOS_WRITE_KEY>", // 1b19b1c2-dcfc-497e-8d86-8d38cd183c5b
+        //   "batch_size": 15, 
+        //   "opt_out":false, 
+        //   "service_interval": 500, 
+        //   "user_country": "ind",
+        // }, (data) => {
+        //   console.log("Initialisation status", data);
+        // });
+        
         console.log('initialiseZeoCollect called');
       }, []);
   return (
