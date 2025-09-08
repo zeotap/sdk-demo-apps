@@ -73,3 +73,49 @@ React-Native/ZeoDemo/android/app/src/main/res/raw/
 React-Native/ZeoDemo/node_modules
 React-Native/ZeoDemo/node_modules/*
 React-Native/ZeoDemo/vendor/*
+
+
+# RN-0-75-5
+React-Native/RN-0-75-5/.DS_Store
+
+# Xcode
+#
+React-Native/RN-0-75-5/build/
+!React-Native/RN-0-75-5/default.pbxuser
+!React-Native/RN-0-75-5/default.mode1v3
+!React-Native/RN-0-75-5/default.mode2v3
+!React-Native/RN-0-75-5/default.perspectivev3
+React-Native/RN-0-75-5/xcuserdata
+React-Native/RN-0-75-5/DerivedData
+React-Native/RN-0-75-5/ios/Podfile.lock
+
+# Android/IntelliJ
+#
+React-Native/RN-0-75-5/android/app/build
+React-Native/RN-0-75-5/android/app/build/
+React-Native/RN-0-75-5/android/.idea
+React-Native/RN-0-75-5/android/.gradle
+React-Native/RN-0-75-5/local.properties
+
+# node.js
+#
+React-Native/RN-0-75-5/node_modules/
+React-Native/RN-0-75-5/npm-debug.log
+React-Native/RN-0-75-5/yarn-error.log
+
+# BUCK
+React-Native/RN-0-75-5/buck-out/
+React-Native/RN-0-75-5/.buckd/
+!React-Native/RN-0-75-5/debug.keystore
+
+# CocoaPods
+React-Native/RN-0-75-5/ios/Pods
+React-Native/RN-0-75-5/ios/Pods/
+React-Native/RN-0-75-5/ios/Pods/*
+
+React-Native/RN-0-75-5/android/app/src/main/res/drawable-*
+React-Native/RN-0-75-5/android/app/src/main/res/raw/
+
+React-Native/RN-0-75-5/node_modules
+React-Native/RN-0-75-5/node_modules/*
+React-Native/RN-0-75-5/vendor/*
