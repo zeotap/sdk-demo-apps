@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zeotap Ecomm</string>
+    <string name="consent_title">We Value Your Privacy</string>
+    <string name="consent_message">We use cookies and similar technologies to enhance your shopping experience, personalize content, and analyze our traffic. By clicking \"I Agree\", you consent to our use of these technologies for analytics and personalized experiences.\n\nYour data helps us:\n\n• Improve product recommendations\n• Enhance user experience\n• Provide relevant offers\n• Analyze shopping patterns\n\nYou can change your preferences at any time in the app settings. For more information, please review our Privacy Policy.</string>
+    <string name="btn_agree">I Agree</string>
+    <string name="btn_disagree">No, Thanks</string>
+    <string name="login_title">Welcome Back</string>
+    <string name="login_subtitle">Sign in to continue shopping</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Sign In</string>
+    <string name="categories_title">Shop by Category</string>
+    <string name="product_list_title">Products</string>
+    <string name="product_detail_title">Product Details</string>
+    <string name="btn_add_to_cart">Add to Cart</string>
+    <string name="btn_buy_now">Buy Now</string>
+</resources>

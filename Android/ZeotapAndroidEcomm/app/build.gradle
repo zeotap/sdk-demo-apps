@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.zeotap.ecomm'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.zeotap.ecomm"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // Zeotap SDK
+    implementation 'com.zeotap:zeo-collect:2.2.12'
+
+    // For Android 13+ (AdID support)
+    implementation 'com.google.android.gms:play-services-ads:20.4.0'
+
+    // JSON support
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Fix PendingIntent crash on Android 12+ (FLAG_IMMUTABLE required)
+    // The Zeotap SDK depends on an older work-runtime; override with a version that handles this
+    implementation 'androidx.work:work-runtime:2.8.1'
+}

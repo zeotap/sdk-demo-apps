@@ -1,121 +1,110 @@
-# OSX
-#
+# ===========================
+# OS Generated Files
+# ===========================
 .DS_Store
-React-Native/ZeoDemo/.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Xcode
-#
-React-Native/ZeoDemo/build/
-*.pbxuser
-!React-Native/ZeoDemo/default.pbxuser
-*.mode1v3
-!React-Native/ZeoDemo/default.mode1v3
-*.mode2v3
-!React-Native/ZeoDemo/default.mode2v3
-*.perspectivev3
-!React-Native/ZeoDemo/default.perspectivev3
-React-Native/ZeoDemo/xcuserdata
-*.xccheckout
-*.moved-aside
-React-Native/ZeoDemo/DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
-React-Native/ZeoDemo/ios/Podfile.lock
-*.xcodeproj/project.pbxproj
-*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
-*.xcworkspace/xcuserdata/
-
-
-# Android/IntelliJ
-#
-React-Native/ZeoDemo/android/app/build
-React-Native/ZeoDemo/android/app/build/
-React-Native/ZeoDemo/android/.idea
-React-Native/ZeoDemo/android/.gradle
-React-Native/ZeoDemo/local.properties
+# ===========================
+# IDE & Editor
+# ===========================
+.idea/
 *.iml
+*.iws
+*.ipr
+.vscode/
+*.swp
+*.swo
+*~
+.claude/
 
-# node.js
-#
-React-Native/ZeoDemo/node_modules/
-React-Native/ZeoDemo/npm-debug.log
-React-Native/ZeoDemo/yarn-error.log
+# ===========================
+# Android
+# ===========================
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration
+local.properties
+
+# Signing
+*.jks
+*.keystore
+!debug.keystore
+
+# Proguard
+proguard/
+
+# Log files
+*.log
+
+# Android Studio captures & navigation
+captures/
+.navigation/
+.externalNativeBuild/
+.cxx/
+output.json
+
+# ===========================
+# React Native
+# ===========================
+# Dependencies
+node_modules/
+
+# Build outputs
+*.jsbundle
+
+# Metro bundler
+.metro-health-check*
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # BUCK
-React-Native/ZeoDemo/buck-out/
-React-Native/ZeoDemo/.buckd/
+buck-out/
+.buckd/
 *.keystore
-!React-Native/ZeoDemo/debug.keystore
+!debug.keystore
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
+# ===========================
+# iOS / Xcode
+# ===========================
+# Build
+**/ios/build/
+**/ios/DerivedData/
 
+# CocoaPods
+**/ios/Pods/
+**/ios/Podfile.lock
+
+# Xcode user-specific
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.xcworkspace/xcuserdata/
+
+# ===========================
+# Fastlane
+# ===========================
 */fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
+*/fastlane/test_output
 
-# Bundle artifact
-*.jsbundle
-
-# CocoaPods
-React-Native/ZeoDemo/ios/Pods
-React-Native/ZeoDemo/ios/Pods/
-React-Native/ZeoDemo/ios/Pods/*
-
-React-Native/ZeoDemo/android/app/src/main/res/drawable-*
-React-Native/ZeoDemo/android/app/src/main/res/raw/
-
-React-Native/ZeoDemo/node_modules
-React-Native/ZeoDemo/node_modules/*
-React-Native/ZeoDemo/vendor/*
-
-
-# RN-0-75-5
-React-Native/RN-0-75-5/.DS_Store
-
-# Xcode
-#
-React-Native/RN-0-75-5/build/
-!React-Native/RN-0-75-5/default.pbxuser
-!React-Native/RN-0-75-5/default.mode1v3
-!React-Native/RN-0-75-5/default.mode2v3
-!React-Native/RN-0-75-5/default.perspectivev3
-React-Native/RN-0-75-5/xcuserdata
-React-Native/RN-0-75-5/DerivedData
-React-Native/RN-0-75-5/ios/Podfile.lock
-
-# Android/IntelliJ
-#
-React-Native/RN-0-75-5/android/app/build
-React-Native/RN-0-75-5/android/app/build/
-React-Native/RN-0-75-5/android/.idea
-React-Native/RN-0-75-5/android/.gradle
-React-Native/RN-0-75-5/local.properties
-
-# node.js
-#
-React-Native/RN-0-75-5/node_modules/
-React-Native/RN-0-75-5/npm-debug.log
-React-Native/RN-0-75-5/yarn-error.log
-
-# BUCK
-React-Native/RN-0-75-5/buck-out/
-React-Native/RN-0-75-5/.buckd/
-!React-Native/RN-0-75-5/debug.keystore
-
-# CocoaPods
-React-Native/RN-0-75-5/ios/Pods
-React-Native/RN-0-75-5/ios/Pods/
-React-Native/RN-0-75-5/ios/Pods/*
-
-React-Native/RN-0-75-5/android/app/src/main/res/drawable-*
-React-Native/RN-0-75-5/android/app/src/main/res/raw/
-
-React-Native/RN-0-75-5/node_modules
-React-Native/RN-0-75-5/node_modules/*
-React-Native/RN-0-75-5/vendor/*
+# ===========================
+# Miscellaneous
+# ===========================
+vendor/
+*.hmap
+*.ipa
