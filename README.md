@@ -123,10 +123,35 @@ cd React-Native
 The drive sequence is one shared Maestro flow (`e2e/zeo-collect-flow.yaml`);
 captured logs are written to `React-Native/.runtime-validation/<app>/` (gitignored).
 
-> For the strongest network-level proof (asserting the exact POST payloads
-> reaching the Zeotap collect endpoint), run an HTTPS proxy (e.g. mitmproxy) with
-> its CA trusted on the emulator, or confirm events in the source's live view in
-> the Zeotap CDP.
+**What the assertions key off (from the native SDK):**
+
+| Signal | Value |
+|--------|-------|
+| Collect endpoint | `https://spl.zeotap.com/fp` |
+| Android log tag | `Zeotap` (`adb logcat -s Zeotap`) |
+| Init success | callback `{status: "SUCCESS", message: "SDK initialized successfully"}` |
+
+#### Network-level proof (mitmproxy)
+
+For the strongest proof — the actual HTTP POSTs on the wire — route the emulator
+through [mitmproxy](https://mitmproxy.org) and assert requests to
+`spl.zeotap.com/fp`:
+
+```sh
+brew install mitmproxy
+mitmdump            # run once to generate ~/.mitmproxy/ CA, then Ctrl-C
+
+# build/install the app first, then:
+cd React-Native
+./validate-network-android.sh RN-0-86-0
+```
+
+> TLS note: Android N+ apps don't trust user-added CAs by default. To let a
+> **debug** build trust the mitmproxy CA, add a `network_security_config` with a
+> `<debug-overrides>` block trusting `user` certs (or push the CA as a system
+> cert on a writable-system emulator). Without this the TLS handshake fails and
+> no flows are captured. Alternatively, confirm events in the source's live view
+> in the Zeotap CDP.
 
 ## SDK Functions Demonstrated
 

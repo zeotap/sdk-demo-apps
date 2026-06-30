@@ -102,15 +102,21 @@ done
 
 echo ""
 echo "[2] Native Zeotap SDK activity (logging:true):"
-SDK_LINES="$(grep -icE 'zeotap|zeocollect|collect' "$LOG")"
-echo "    matched $SDK_LINES line(s) mentioning zeotap/collect"
-grep -iE 'zeotap|zeocollect' "$LOG" | grep -ivE 'ZEOTAP-HARNESS' | head -8 | sed 's/^/      | /'
+# Native SDK lines (exclude our own JS markers which also contain 'zeotap').
+SDK_LINES="$(grep -icE 'zeotap|zeocollect|collect' "$LOG" | head -1)"
+SDK_LINES="$(grep -iE 'zeotap|zeocollect|collect' "$LOG" | grep -ivcE 'ZEOTAP-HARNESS')"
+echo "    matched $SDK_LINES native-SDK log line(s)"
+grep -iE 'zeotap|zeocollect' "$LOG" | grep -ivE 'ZEOTAP-HARNESS' | head -10 | sed 's/^/      | /'
+for tok in "SDK initialized successfully" "consent" "init"; do
+  n="$(grep -icF "$tok" "$LOG")"; echo "    token \"$tok\": $n hit(s)"
+done
 
 echo ""
-echo "[3] Network / upload evidence:"
-NET_LINES="$(grep -icE 'http(s)?://|upload|batch|flush|POST |response|zeotap\.com|spl\.' "$LOG")"
-echo "    matched $NET_LINES line(s) suggesting network/upload"
-grep -iE 'http(s)?://|upload|flush|zeotap\.com|spl\.' "$LOG" | head -8 | sed 's/^/      | /'
+echo "[3] Network / upload evidence (collect endpoint https://spl.zeotap.com/fp):"
+NET_LINES="$(grep -icE 'spl\.zeotap\.com|/fp|upload|response code|status code' "$LOG")"
+echo "    matched $NET_LINES line(s) referencing the endpoint/upload"
+grep -iE 'spl\.zeotap\.com|/fp|upload|response code|status code' "$LOG" | head -8 | sed 's/^/      | /'
+[ "$NET_LINES" -eq 0 ] && echo "    (none in os_log — confirm upload via mitmproxy or the Zeotap CDP live view; see README)"
 
 echo ""
 echo "=================================================================="
