@@ -41,6 +41,17 @@ npm run android    # or: npm run ios
 2. Tap each button and watch the console (Metro / `adb logcat` / Xcode) to
    confirm every method fires without error.
 
+## Run the automated test (no emulator)
+
+This app ships a Jest test (`__tests__/App.test.tsx`) that mocks `zeo-collect`
+and drives the harness UI in pure JavaScript — no device or emulator required.
+It asserts that every SDK method below is invoked with the expected arguments.
+
+```sh
+npm install
+npm test
+```
+
 ### SDK methods exercised
 
 | Button | `zeo-collect` method |

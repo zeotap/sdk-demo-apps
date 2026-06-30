@@ -67,6 +67,34 @@ run steps and how to toggle between the New and Old Architectures.
 > `android/gradle.properties` (Android) or reinstall pods with
 > `RCT_NEW_ARCH_ENABLED=0|1 bundle exec pod install` (iOS) — see the app README.
 
+#### Validating the SDK without an emulator
+
+Every harness ships with a Jest test (`__tests__/App.test.tsx`) that **mocks the
+native `zeo-collect` module and drives the harness UI entirely in JavaScript** —
+no device, simulator, or emulator required. It asserts that each SDK method is
+called with the expected arguments when its button is pressed, so it catches
+JS↔SDK wiring breakage on a given RN version in seconds.
+
+Validate a single version:
+
+```sh
+cd React-Native/RN-0-86-0
+npm install
+npm test
+```
+
+Validate **every** version in one shot:
+
+```sh
+cd React-Native
+./validate-all.sh            # all versions
+./validate-all.sh RN-0-86-0  # or a specific one
+```
+
+This is the fast feedback loop (CI-friendly). It verifies the SDK's API surface
+and integration; for native-level behaviour (events actually reaching the CDP),
+still run the app on a device/emulator at least once per architecture.
+
 ## SDK Functions Demonstrated
 
 Each app showcases the core Zeotap SDK APIs in context:
