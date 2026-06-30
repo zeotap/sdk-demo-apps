@@ -108,3 +108,6 @@ xcuserdata/
 vendor/
 *.hmap
 *.ipa
+
+# Runtime validation captured logs (Zeotap SDK demo)
+React-Native/.runtime-validation/

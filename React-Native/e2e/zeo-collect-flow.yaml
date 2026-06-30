@@ -1,0 +1,76 @@
+# Maestro flow — drives the Zeotap Collect SDK function-test harness through
+# every zeo-collect API method. Shared by all RN version apps; the target app is
+# passed in via the APP_ID env var, e.g.:
+#
+#   maestro test --env APP_ID=com.zeorn0860 e2e/zeo-collect-flow.yaml
+#
+# The runtime validation scripts (validate-runtime-android.sh / -ios.sh) capture
+# logs while this flow runs and assert the SDK fired as expected.
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+
+# Grant consent -> initialiseZeoCollect + getZI
+- tapOn:
+    id: "consent-yes"
+- assertVisible:
+    id: "set-consent"
+
+# Walk every SDK method. scrollUntilVisible keeps it robust across screen sizes.
+- tapOn:
+    id: "set-consent"
+
+- scrollUntilVisible:
+    element:
+      id: "set-event"
+    direction: DOWN
+- tapOn:
+    id: "set-event"
+- tapOn:
+    id: "set-event-cb"
+
+- scrollUntilVisible:
+    element:
+      id: "set-event-props"
+    direction: DOWN
+- tapOn:
+    id: "set-event-props"
+- tapOn:
+    id: "set-event-props-cb"
+
+- scrollUntilVisible:
+    element:
+      id: "set-instant-event"
+    direction: DOWN
+- tapOn:
+    id: "set-instant-event"
+- tapOn:
+    id: "set-instant-event-cb"
+
+- scrollUntilVisible:
+    element:
+      id: "set-user-identities"
+    direction: DOWN
+- tapOn:
+    id: "set-user-identities"
+- tapOn:
+    id: "set-user-identities-alt"
+
+- scrollUntilVisible:
+    element:
+      id: "set-user-properties"
+    direction: DOWN
+- tapOn:
+    id: "set-user-properties"
+
+- scrollUntilVisible:
+    element:
+      id: "set-page-properties"
+    direction: DOWN
+- tapOn:
+    id: "set-page-properties"
+
+# unset last, so identities were set beforehand
+- tapOn:
+    id: "unset-identities"
