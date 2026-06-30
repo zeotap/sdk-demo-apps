@@ -10,8 +10,16 @@ sdk-demo-apps/
 │   ├── ZeotapAndroidEcomm/     # Java - Android SDK integration
 │   └── ZeotapKotlinShopping/   # Kotlin - Android SDK integration
 └── React-Native/
-    ├── RN-0-75-5/              # React Native 0.75.5 - RN SDK integration
-    └── ZeoDemo/                # React Native - RN SDK integration
+    ├── ZeoDemo/                # React Native 0.72 - full e-commerce demo
+    ├── RN-0-73-11/             # React Native 0.73.11 - SDK test harness
+    ├── RN-0-74-7/              # React Native 0.74.7  - SDK test harness
+    ├── RN-0-75-5/              # React Native 0.75.5  - SDK test harness
+    ├── RN-0-76-9/              # React Native 0.76.9  - SDK test harness (New Arch default)
+    ├── RN-0-77-3/              # React Native 0.77.3  - SDK test harness (New Arch default)
+    ├── RN-0-78-3/              # React Native 0.78.3  - SDK test harness (React 19)
+    ├── RN-0-79-7/              # React Native 0.79.7  - SDK test harness
+    ├── RN-0-80-3/              # React Native 0.80.3  - SDK test harness
+    └── RN-0-86-0/              # React Native 0.86.0  - SDK test harness (latest)
 ```
 
 ### Android Apps
@@ -31,10 +39,33 @@ Both Android apps share the same user flow:
 
 ### React Native Apps
 
-| App | RN Version | Description |
-|-----|------------|-------------|
-| **RN-0-75-5** | 0.75.5 | SDK function test app covering all `zeo-collect` API methods |
-| **ZeoDemo** | - | Demo app with Zeotap React Native SDK |
+The React Native folder is a **multi-version validation matrix**: the same
+`zeo-collect` SDK function-test harness, scaffolded fresh on each supported
+React Native version. Customers (and we) can pick the version closest to their
+project and confirm the SDK initialises and every API method runs as expected —
+including across the New Architecture boundary introduced in RN 0.76.
+
+Every harness pins **`zeo-collect@1.3.9`** and exposes each SDK method as a
+button that logs its result to the console. See each app's own `README.md` for
+run steps and how to toggle between the New and Old Architectures.
+
+| App | RN Version | React | Default Architecture | Notes |
+|-----|------------|-------|----------------------|-------|
+| **ZeoDemo** | 0.72.10 | 18.2 | Old | Full e-commerce demo (navigation, redux) — not a harness |
+| **RN-0-73-11** | 0.73.11 | 18.2 | Old | SDK function-test harness |
+| **RN-0-74-7** | 0.74.7 | 18.2 | Old | SDK function-test harness |
+| **RN-0-75-5** | 0.75.5 | 18.3 | Old | SDK function-test harness |
+| **RN-0-76-9** | 0.76.9 | 18.3 | **New** | New Architecture becomes the default |
+| **RN-0-77-3** | 0.77.3 | 18.3 | **New** | SDK function-test harness |
+| **RN-0-78-3** | 0.78.3 | 19.0 | **New** | React 19 baseline |
+| **RN-0-79-7** | 0.79.7 | 19.0 | **New** | SDK function-test harness |
+| **RN-0-80-3** | 0.80.3 | 19.1 | **New** | SDK function-test harness |
+| **RN-0-86-0** | 0.86.0 | 19.2 | **New** | Latest stable |
+
+> Each harness ships on its RN version's **default** architecture. To validate
+> the SDK on the other architecture, flip `newArchEnabled` in
+> `android/gradle.properties` (Android) or reinstall pods with
+> `RCT_NEW_ARCH_ENABLED=0|1 bundle exec pod install` (iOS) — see the app README.
 
 ## SDK Functions Demonstrated
 
