@@ -22,6 +22,10 @@ FLOW="$ROOT/e2e/zeo-collect-flow.yaml"
 OUT="$ROOT/.runtime-validation/$APP"
 LOG="$OUT/logcat.txt"
 METRO_LOG="$OUT/metro.log"
+# Metro normally serves on 8081. Override (e.g. METRO_PORT=8088) when 8081 is
+# taken by another process (Docker, etc.); the app still asks for 8081 on the
+# device, and we adb-reverse device:8081 -> host:METRO_PORT.
+METRO_PORT="${METRO_PORT:-8081}"
 
 fail() { echo "ERROR: $*" >&2; exit 1; }
 
@@ -52,16 +56,30 @@ trap cleanup EXIT
 cd "$APP_DIR"
 [ -d node_modules ] || { echo "--- npm install ---"; npm install --no-audit --no-fund || fail "npm install failed"; }
 
-echo "--- starting Metro ---"
-( npx react-native start --reset-cache >"$METRO_LOG" 2>&1 ) &
+echo "--- starting Metro on port $METRO_PORT ---"
+( npx react-native start --reset-cache --port "$METRO_PORT" >"$METRO_LOG" 2>&1 ) &
 METRO_PID=$!
 for i in $(seq 1 60); do
-  curl -s "http://localhost:8081/status" 2>/dev/null | grep -q "packager-status:running" && break
+  curl -s "http://localhost:$METRO_PORT/status" 2>/dev/null | grep -q "packager-status:running" && break
   sleep 1
 done
 
 echo "--- building & installing debug app (first build can take several minutes) ---"
 npx react-native run-android --no-packager || fail "run-android failed (see output above)"
+
+# Point the device's dev-server port at our Metro and reload the bundle.
+adb reverse tcp:8081 "tcp:$METRO_PORT" >/dev/null 2>&1
+adb shell am force-stop "$APP_ID" >/dev/null 2>&1
+adb shell monkey -p "$APP_ID" -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
+
+echo "--- waiting for the JS bundle to render the consent screen ---"
+for i in $(seq 1 40); do
+  adb shell uiautomator dump /sdcard/_zui.xml >/dev/null 2>&1
+  if adb shell cat /sdcard/_zui.xml 2>/dev/null | grep -q "consent-yes\|Yes, I Consent"; then
+    echo "    consent screen ready"; break
+  fi
+  sleep 3
+done
 
 echo "--- clearing logcat and starting capture (ReactNativeJS + Zeotap tags) ---"
 adb logcat -c
@@ -71,7 +89,11 @@ adb logcat -v time ReactNativeJS:V Zeotap:V "*:S" > "$LOG" 2>&1 &
 LOGCAT_PID=$!
 
 echo "--- driving the app with Maestro ---"
-maestro test --env APP_ID="$APP_ID" "$FLOW"
+# Bake the appId into a temp flow (Maestro doesn't interpolate ${APP_ID} in the
+# top-level appId field reliably across versions).
+RUNFLOW="$OUT/flow.yaml"
+sed "s|\${APP_ID}|$APP_ID|g" "$FLOW" > "$RUNFLOW"
+maestro test "$RUNFLOW"
 MAESTRO_RC=$?
 
 echo "--- waiting for native SDK to flush/upload events ---"
