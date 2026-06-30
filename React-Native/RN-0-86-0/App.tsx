@@ -3,13 +3,20 @@
  *
  * A single-screen app that exercises every `zeo-collect` API method so that
  * customers (and we) can validate the SDK behaves as expected on this exact
- * React Native version. Every button calls one SDK method and logs the result
- * to the console (Metro / adb logcat / Xcode).
+ * React Native version. Every button calls one SDK method.
+ *
+ * Two layers of validation are built in:
+ *   1. JS wiring   — `npm test` (Jest) mocks the SDK and asserts each method is
+ *                    called with the right arguments. No device needed.
+ *   2. Runtime     — every action logs a `[ZEOTAP-HARNESS]` marker, and the SDK
+ *                    is initialised with `logging: true` so the native Zeotap
+ *                    SDK emits its own processing/network logs. The runtime
+ *                    validation scripts drive the app (Maestro) and assert these
+ *                    markers + native SDK/network log lines appear.
  *
  * This file is intentionally self-contained: it does NOT import from
  * `react-native/Libraries/NewAppScreen`, so the same harness compiles and runs
- * unchanged across RN 0.73 → 0.86 (the NewAppScreen API was redesigned/removed
- * in RN 0.80+).
+ * unchanged across RN 0.73 → 0.86.
  *
  * @format
  */
@@ -55,6 +62,10 @@ const Colors = {
 const ANDROID_WRITE_KEY = '1189a077-6cee-42c8-8195-bb37982b7866';
 const IOS_WRITE_KEY = '1189a077-6cee-42c8-8195-bb37982b7866';
 
+// Emit a greppable marker for every SDK call so the runtime validation scripts
+// can assert (via logcat / os_log) that each function actually ran.
+const mark = (method: string) => console.log(`[ZEOTAP-HARNESS] ${method}`);
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -92,28 +103,30 @@ function App(): React.JSX.Element {
 
   const handleConsentYes = () => {
     setConsentGiven(true);
+    mark('initialiseZeoCollect');
     initialiseZeoCollect(
       {
         android_write_key: ANDROID_WRITE_KEY,
         ios_write_key: IOS_WRITE_KEY,
+        // Turn on the native Zeotap SDK's own logging so its event-processing
+        // and network/upload activity is visible in logcat / Xcode console.
+        logging: true,
       },
       (response: any) => {
-        console.log('ZeoCollect initialized', response);
+        console.log('[ZEOTAP-HARNESS] initialised:callback', response);
         setSdkInitialized(true);
       },
     );
-    console.log(
-      'ZeoCollect instance id',
-      getZI((response: any) => {
-        console.log('ZI callback response', response);
-      }),
-    );
+    mark('getZI');
+    getZI((response: any) => {
+      console.log('[ZEOTAP-HARNESS] getZI:callback', response);
+    });
   };
 
   const handleConsentNo = () => {
     setConsentGiven(false);
+    mark('pauseCollection');
     pauseCollection();
-    console.log('Data collection paused');
   };
 
   const backgroundStyle = {
@@ -147,6 +160,7 @@ function App(): React.JSX.Element {
           <View style={styles.consentButtons}>
             <View style={styles.buttonWrapper}>
               <Button
+                testID="consent-yes"
                 title="Yes, I Consent"
                 onPress={handleConsentYes}
                 color="#4CAF50"
@@ -154,6 +168,7 @@ function App(): React.JSX.Element {
             </View>
             <View style={styles.buttonWrapper}>
               <Button
+                testID="consent-no"
                 title="No, Decline"
                 onPress={handleConsentNo}
                 color="#f44336"
@@ -187,13 +202,15 @@ function App(): React.JSX.Element {
               setConsent - Helps application to pass the user consent to SDK
             </Text>
             <Button
+              testID="set-consent"
               title="set Consent"
-              onPress={() =>
+              onPress={() => {
+                mark('setConsent');
                 setConsent({
                   track: true,
                   identify: true,
-                })
-              }
+                });
+              }}
             />
           </View>
         </Section>
@@ -203,8 +220,12 @@ function App(): React.JSX.Element {
               setEventNameProperties - Tracks a named event in the SDK
             </Text>
             <Button
+              testID="set-event"
               title="set Event"
-              onPress={() => setEventNameProperties('Sending dummy events')}
+              onPress={() => {
+                mark('setEventNameProperties');
+                setEventNameProperties('Sending dummy events');
+              }}
             />
           </View>
           <View style={{ paddingBottom: 12 }}>
@@ -213,12 +234,14 @@ function App(): React.JSX.Element {
               receives status update
             </Text>
             <Button
+              testID="set-event-cb"
               title="set Event with cb"
-              onPress={() =>
+              onPress={() => {
+                mark('setEventNameProperties:cb');
                 setEventNameProperties('Sending dummy events', (data: any) => {
-                  console.log('Event status update', data);
-                })
-              }
+                  console.log('[ZEOTAP-HARNESS] setEventNameProperties:cb', data);
+                });
+              }}
             />
           </View>
           <View style={{ paddingBottom: 12 }}>
@@ -226,16 +249,18 @@ function App(): React.JSX.Element {
               setEventProperties - Tracks an event with additional properties
             </Text>
             <Button
+              testID="set-event-props"
               title="set Event properties"
-              onPress={() =>
+              onPress={() => {
+                mark('setEventProperties');
                 setEventProperties(
                   'Sending dummy events',
                   { test: 'test' },
                   (response: any) => {
-                    console.log('Event tracked:', response);
+                    console.log('[ZEOTAP-HARNESS] setEventProperties:cb', response);
                   },
-                )
-              }
+                );
+              }}
             />
           </View>
           <View style={{ paddingBottom: 12 }}>
@@ -244,16 +269,18 @@ function App(): React.JSX.Element {
               and receives status update
             </Text>
             <Button
+              testID="set-event-props-cb"
               title="set Event properties cb"
-              onPress={() =>
+              onPress={() => {
+                mark('setEventProperties:cb');
                 setEventProperties(
                   'Sending dummy events',
                   { test: 'test' },
                   (data: any) => {
-                    console.log('Event prop status update', data);
+                    console.log('[ZEOTAP-HARNESS] setEventProperties:cb2', data);
                   },
-                )
-              }
+                );
+              }}
             />
           </View>
           <View style={{ paddingBottom: 12 }}>
@@ -261,10 +288,12 @@ function App(): React.JSX.Element {
               setInstantEventNameProperties - Instantly tracks a named event
             </Text>
             <Button
+              testID="set-instant-event"
               title="set Instant Event"
-              onPress={() =>
-                setInstantEventNameProperties('Sending dummy events')
-              }
+              onPress={() => {
+                mark('setInstantEventNameProperties');
+                setInstantEventNameProperties('Sending dummy events');
+              }}
             />
           </View>
           <View style={{ paddingBottom: 12 }}>
@@ -273,15 +302,20 @@ function App(): React.JSX.Element {
               named event and receives status update
             </Text>
             <Button
+              testID="set-instant-event-cb"
               title="set Instant Event with cb"
-              onPress={() =>
+              onPress={() => {
+                mark('setInstantEventNameProperties:cb');
                 setInstantEventNameProperties(
                   'Sending dummy events',
                   (data: any) => {
-                    console.log('Instant Event status update', data);
+                    console.log(
+                      '[ZEOTAP-HARNESS] setInstantEventNameProperties:cb',
+                      data,
+                    );
                   },
-                )
-              }
+                );
+              }}
             />
           </View>
         </Section>
@@ -291,10 +325,12 @@ function App(): React.JSX.Element {
               setUserIdentities - Sets user identity information in the SDK
             </Text>
             <Button
+              testID="set-user-identities"
               title="set user identities"
-              onPress={() =>
-                setUserIdentities({ account_id: '123', household_id: '123' })
-              }
+              onPress={() => {
+                mark('setUserIdentities');
+                setUserIdentities({ account_id: '123', household_id: '123' });
+              }}
             />
           </View>
           <View style={{ paddingBottom: 12 }}>
@@ -302,13 +338,15 @@ function App(): React.JSX.Element {
               Set user Identities - Sets user identity with different keys
             </Text>
             <Button
+              testID="set-user-identities-alt"
               title="Set user Identities"
-              onPress={() =>
+              onPress={() => {
+                mark('setUserIdentities:alt');
                 setUserIdentities({
                   householdId: '123',
                   accountId: '1232523532',
-                })
-              }
+                });
+              }}
             />
           </View>
           <View style={{ paddingBottom: 12 }}>
@@ -317,8 +355,12 @@ function App(): React.JSX.Element {
               SDK
             </Text>
             <Button
+              testID="unset-identities"
               title="unset Identities"
-              onPress={() => unsetUserIdentities()}
+              onPress={() => {
+                mark('unsetUserIdentities');
+                unsetUserIdentities();
+              }}
             />
           </View>
         </Section>
@@ -328,8 +370,12 @@ function App(): React.JSX.Element {
               setUserProperties - Sets user properties in the SDK
             </Text>
             <Button
+              testID="set-user-properties"
               title="set user properties"
-              onPress={() => setUserProperties({ theme: 'dark' })}
+              onPress={() => {
+                mark('setUserProperties');
+                setUserProperties({ theme: 'dark' });
+              }}
             />
           </View>
         </Section>
@@ -339,10 +385,12 @@ function App(): React.JSX.Element {
               setPageProperties - Sets page related properties in the SDK
             </Text>
             <Button
+              testID="set-page-properties"
               title="set page properties"
-              onPress={() =>
-                setPageProperties({ name: 'test', component: 'test-component' })
-              }
+              onPress={() => {
+                mark('setPageProperties');
+                setPageProperties({ name: 'test', component: 'test-component' });
+              }}
             />
           </View>
         </Section>

@@ -92,8 +92,41 @@ cd React-Native
 ```
 
 This is the fast feedback loop (CI-friendly). It verifies the SDK's API surface
-and integration; for native-level behaviour (events actually reaching the CDP),
-still run the app on a device/emulator at least once per architecture.
+and integration. The `zeo-collect` JS package is only a thin bridge — the actual
+event batching, **network upload, and the SDK's own logs happen in native code**
+(`com.zeotap:zeo-collect` on Android, the ZeoCollect pod on iOS). To confirm
+those, use the runtime validation below.
+
+#### Validating the SDK at runtime (real network calls + logs)
+
+The harness initialises the SDK with `logging: true` and emits a
+`[ZEOTAP-HARNESS] <method>` console marker for every call. The runtime scripts
+build & launch a harness on an emulator/simulator, drive **every** SDK method
+automatically with [Maestro](https://maestro.mobile.dev), capture the device
+logs, and assert that:
+
+1. every `[ZEOTAP-HARNESS]` marker was logged (each function actually ran), and
+2. the native Zeotap SDK emitted processing / network-upload log lines.
+
+```sh
+cd React-Native
+
+# Android — needs a running emulator/device + Maestro
+#   start one first:  $ANDROID_HOME/emulator/emulator -avd <name> &
+./validate-runtime-android.sh RN-0-74-7
+
+# iOS — needs a booted Simulator + CocoaPods + Maestro
+#   boot one first:   xcrun simctl boot "iPhone 15"; open -a Simulator
+./validate-runtime-ios.sh RN-0-74-7
+```
+
+The drive sequence is one shared Maestro flow (`e2e/zeo-collect-flow.yaml`);
+captured logs are written to `React-Native/.runtime-validation/<app>/` (gitignored).
+
+> For the strongest network-level proof (asserting the exact POST payloads
+> reaching the Zeotap collect endpoint), run an HTTPS proxy (e.g. mitmproxy) with
+> its CA trusted on the emulator, or confirm events in the source's live view in
+> the Zeotap CDP.
 
 ## SDK Functions Demonstrated
 
