@@ -21,6 +21,7 @@ import {
 import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
+import { TurboModuleRegistry, NativeModules } from 'react-native';
 
 import { initialiseZeoCollect, setEventNameProperties, setConsent, setInstantEventNameProperties, setEventProperties, setUserIdentities, unsetUserIdentities, setPageProperties, setUserProperties } from 'zeo-collect';
 
@@ -63,6 +64,12 @@ function App(): React.JSX.Element {
       "batch_size": 15,
       "service_interval": 30,
     });
+
+    console.log('[probe] fabric  =', !!(global as any).nativeFabricUIManager);
+console.log('[probe] bridgeless =', !!(global as any).RN$Bridgeless);
+console.log('[probe] TM proxy =', !!(global as any).__turboModuleProxy);
+console.log('[probe] TM get  =', TurboModuleRegistry.get('ZeoCollect') != null);
+console.log('[probe] NM      =', NativeModules.ZeoCollect != null);
   }, []);
 
   const backgroundStyle = {
@@ -87,7 +94,7 @@ function App(): React.JSX.Element {
             <Button
               title="set Consent"
               onPress={() => setConsent({
-                track: true,
+                track: false,
                 identify: true,
               })}
             />
