@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		C7D8C7A46F0D63FC2C8DD9ABFE6D86D9 /* ZeotapCollect */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DF60F8C4C72D6BCA293F6C8FABE0023A /* Build configuration list for PBXAggregateTarget "ZeotapCollect" */;
+			buildPhases = (
+				24744F87747D8CF5386E410D577A43E6 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = ZeotapCollect;
+			productName = ZeotapCollect;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1A81948982B5BA1F0A22DB30D3D93C72 /* Pods-ZeotapTravelExplorer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 817389F1868CE49DDA75441DB4704810 /* Pods-ZeotapTravelExplorer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AEFC8BDA6A7ACBFEC8F53E7B6D139975 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
+		DED53F574177954A87ED2C6F9B96DDB2 /* Pods-ZeotapTravelExplorer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 387B675D57BCA1E8415F20519E942857 /* Pods-ZeotapTravelExplorer-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		64B6DFA6A6F339D3777DECAE85FD94DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7D8C7A46F0D63FC2C8DD9ABFE6D86D9;
+			remoteInfo = ZeotapCollect;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AE110AC3E664398D5786114E17FBFBB /* ZeotapCollect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZeotapCollect.debug.xcconfig; sourceTree = "<group>"; };
+		1E58DFD208CA860E75B79CFD43FA7769 /* Pods-ZeotapTravelExplorer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZeotapTravelExplorer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		387B675D57BCA1E8415F20519E942857 /* Pods-ZeotapTravelExplorer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZeotapTravelExplorer-dummy.m"; sourceTree = "<group>"; };
+		421CD4E8DE7310BB1BB9F6E65BF34452 /* Pods-ZeotapTravelExplorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZeotapTravelExplorer.debug.xcconfig"; sourceTree = "<group>"; };
+		599321CE4D1CF6C5D2D7EDCC5CB3CBDD /* Pods-ZeotapTravelExplorer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZeotapTravelExplorer-frameworks.sh"; sourceTree = "<group>"; };
+		80E10071407D94D3B2AA28C36BCF4F07 /* Pods_ZeotapTravelExplorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZeotapTravelExplorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		817389F1868CE49DDA75441DB4704810 /* Pods-ZeotapTravelExplorer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ZeotapTravelExplorer-umbrella.h"; sourceTree = "<group>"; };
+		8EBF69C9E534541A1DDD95B015505F35 /* ZeotapCollect.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = ZeotapCollect.xcframework; sourceTree = "<group>"; };
+		95FE27C30195D48ABB5DD6C68AA9684A /* Pods-ZeotapTravelExplorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZeotapTravelExplorer.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A46FB25A79509CA3C5DD62C79BC1ABBE /* ZeotapCollect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZeotapCollect.release.xcconfig; sourceTree = "<group>"; };
+		A8CD955FCBDAEB0420D14A96A00C478B /* Pods-ZeotapTravelExplorer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZeotapTravelExplorer-Info.plist"; sourceTree = "<group>"; };
+		ADD0A1AF8C50EF1B4C09BECDD4E0D3E9 /* Pods-ZeotapTravelExplorer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ZeotapTravelExplorer.modulemap"; sourceTree = "<group>"; };
+		B16611B7B540A00504C8E2DE177F0134 /* Pods-ZeotapTravelExplorer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZeotapTravelExplorer-acknowledgements.plist"; sourceTree = "<group>"; };
+		D03FE202A453B2650B1F89B6B55C0AEB /* ZeotapCollect-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "ZeotapCollect-xcframeworks.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0D8CFFA4418EC2D48112E3F67DCB0854 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEFC8BDA6A7ACBFEC8F53E7B6D139975 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C529834B8FC08BD0F2117B6C6565619 /* Pods-ZeotapTravelExplorer */ = {
+			isa = PBXGroup;
+			children = (
+				ADD0A1AF8C50EF1B4C09BECDD4E0D3E9 /* Pods-ZeotapTravelExplorer.modulemap */,
+				1E58DFD208CA860E75B79CFD43FA7769 /* Pods-ZeotapTravelExplorer-acknowledgements.markdown */,
+				B16611B7B540A00504C8E2DE177F0134 /* Pods-ZeotapTravelExplorer-acknowledgements.plist */,
+				387B675D57BCA1E8415F20519E942857 /* Pods-ZeotapTravelExplorer-dummy.m */,
+				599321CE4D1CF6C5D2D7EDCC5CB3CBDD /* Pods-ZeotapTravelExplorer-frameworks.sh */,
+				A8CD955FCBDAEB0420D14A96A00C478B /* Pods-ZeotapTravelExplorer-Info.plist */,
+				817389F1868CE49DDA75441DB4704810 /* Pods-ZeotapTravelExplorer-umbrella.h */,
+				421CD4E8DE7310BB1BB9F6E65BF34452 /* Pods-ZeotapTravelExplorer.debug.xcconfig */,
+				95FE27C30195D48ABB5DD6C68AA9684A /* Pods-ZeotapTravelExplorer.release.xcconfig */,
+			);
+			name = "Pods-ZeotapTravelExplorer";
+			path = "Target Support Files/Pods-ZeotapTravelExplorer";
+			sourceTree = "<group>";
+		};
+		3DB78B88FA145AD184D836EFECEEB3D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EBF69C9E534541A1DDD95B015505F35 /* ZeotapCollect.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		552E0E07AAAC42960A6961264232A6EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				963257EA701663F80F234571F61EC96D /* ZeotapCollect */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6841D28F36B1F6FB4FFA4264A2535B01 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D03FE202A453B2650B1F89B6B55C0AEB /* ZeotapCollect-xcframeworks.sh */,
+				0AE110AC3E664398D5786114E17FBFBB /* ZeotapCollect.debug.xcconfig */,
+				A46FB25A79509CA3C5DD62C79BC1ABBE /* ZeotapCollect.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ZeotapCollect";
+			sourceTree = "<group>";
+		};
+		963257EA701663F80F234571F61EC96D /* ZeotapCollect */ = {
+			isa = PBXGroup;
+			children = (
+				3DB78B88FA145AD184D836EFECEEB3D0 /* Frameworks */,
+				6841D28F36B1F6FB4FFA4264A2535B01 /* Support Files */,
+			);
+			path = ZeotapCollect;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				552E0E07AAAC42960A6961264232A6EA /* Pods */,
+				D4184B19BE14FF655CE8D56FF92CF7D3 /* Products */,
+				DDB4EB7C6B1648B28DC0D53CBFEFD170 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4801F62A6B08CD9B5410329F1A18FDE /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4184B19BE14FF655CE8D56FF92CF7D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80E10071407D94D3B2AA28C36BCF4F07 /* Pods_ZeotapTravelExplorer.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDB4EB7C6B1648B28DC0D53CBFEFD170 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C529834B8FC08BD0F2117B6C6565619 /* Pods-ZeotapTravelExplorer */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E4801F62A6B08CD9B5410329F1A18FDE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C524A81F70152A53BA1B6B58417C54E4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A81948982B5BA1F0A22DB30D3D93C72 /* Pods-ZeotapTravelExplorer-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FC6A335C66E043FF1EEE5888133EC687 /* Pods-ZeotapTravelExplorer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C8FDA787B6B7167F041C2461574FBB9 /* Build configuration list for PBXNativeTarget "Pods-ZeotapTravelExplorer" */;
+			buildPhases = (
+				C524A81F70152A53BA1B6B58417C54E4 /* Headers */,
+				EFC175F0CB2EE90F5F5E79A42B4F6554 /* Sources */,
+				0D8CFFA4418EC2D48112E3F67DCB0854 /* Frameworks */,
+				5787CCCB37BE7E357831C05E647D902A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16DB171C662C6B0D960B2C6CAE290655 /* PBXTargetDependency */,
+			);
+			name = "Pods-ZeotapTravelExplorer";
+			productName = Pods_ZeotapTravelExplorer;
+			productReference = 80E10071407D94D3B2AA28C36BCF4F07 /* Pods_ZeotapTravelExplorer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 2620;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = D4184B19BE14FF655CE8D56FF92CF7D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC6A335C66E043FF1EEE5888133EC687 /* Pods-ZeotapTravelExplorer */,
+				C7D8C7A46F0D63FC2C8DD9ABFE6D86D9 /* ZeotapCollect */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5787CCCB37BE7E357831C05E647D902A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24744F87747D8CF5386E410D577A43E6 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/ZeotapCollect/ZeotapCollect-xcframeworks-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/ZeotapCollect/ZeotapCollect-xcframeworks-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/ZeotapCollect/ZeotapCollect-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFC175F0CB2EE90F5F5E79A42B4F6554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DED53F574177954A87ED2C6F9B96DDB2 /* Pods-ZeotapTravelExplorer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		16DB171C662C6B0D960B2C6CAE290655 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZeotapCollect;
+			target = C7D8C7A46F0D63FC2C8DD9ABFE6D86D9 /* ZeotapCollect */;
+			targetProxy = 64B6DFA6A6F339D3777DECAE85FD94DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4BC7450F9457737EE3E637BA155B56F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		8AC6EA2472A738DD6E70A22E531E7179 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95FE27C30195D48ABB5DD6C68AA9684A /* Pods-ZeotapTravelExplorer.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-ZeotapTravelExplorer/Pods-ZeotapTravelExplorer-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZeotapTravelExplorer/Pods-ZeotapTravelExplorer.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		D230AF2F4DEDD028B54B1A7DDA46A39B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A46FB25A79509CA3C5DD62C79BC1ABBE /* ZeotapCollect.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE1737AED7F1D1CDA1AC0CEFF0EC1431 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 421CD4E8DE7310BB1BB9F6E65BF34452 /* Pods-ZeotapTravelExplorer.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-ZeotapTravelExplorer/Pods-ZeotapTravelExplorer-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZeotapTravelExplorer/Pods-ZeotapTravelExplorer.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FC0AC1990ECAC015AD29CA221C50808F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AE110AC3E664398D5786114E17FBFBB /* ZeotapCollect.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C8FDA787B6B7167F041C2461574FBB9 /* Build configuration list for PBXNativeTarget "Pods-ZeotapTravelExplorer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE1737AED7F1D1CDA1AC0CEFF0EC1431 /* Debug */,
+				8AC6EA2472A738DD6E70A22E531E7179 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BC7450F9457737EE3E637BA155B56F7 /* Debug */,
+				8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF60F8C4C72D6BCA293F6C8FABE0023A /* Build configuration list for PBXAggregateTarget "ZeotapCollect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC0AC1990ECAC015AD29CA221C50808F /* Debug */,
+				D230AF2F4DEDD028B54B1A7DDA46A39B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
